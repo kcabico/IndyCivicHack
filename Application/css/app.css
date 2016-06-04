@@ -1,7 +1,37 @@
-body{
+html, body {
+  height: 90%;
+  width: 90%;
+  margin: 0;
+  padding: 0;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 
 }
+#map {
+  height: 500px;
+  width: 400px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 
-div.map{
-  
+}
+h2{
+  border-style: dashed;
+  border-width: 5px;
+  border-color: blue;
+  text-align: center;
+}
+h4{
+  width: 30%;
+  border-style: dashed;
+  border-width: 5px;
+  border-color: blue;
+  text-align: center;
+  margin-left: 35%;
+}
+#aroundMap{
+  background-image: url("IndianapolisBackdrop.jpg");
+  background-position: center;
+
 }

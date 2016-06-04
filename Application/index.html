@@ -8,50 +8,87 @@
     <title>Color Crime Map</title>
     <link rel="stylesheet" href="css/foundation.css">
     <link rel="stylesheet" href="css/app.css">
-    <style>
-      html, body {
-        height: 90%;
-        width: 90%;
-        margin: 0;
-        padding: 0;
-      }
-      #map {
-        height: 50%;
-        width: 50%;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-      }
-    </style>
+
   </head>
   <body>
-    <div class="">
-      <h2>top</h2>
+    <div id="aboveMap">
+      <h2>Make Our Street's Safe Again</h2>
+      <p>Our idea was to create a map that would show the Indianapolis
+        Government, families and anyone else who was interested, where crime had
+         happened then eventually cross reference if there were any street
+         lights, sidewalk or road repairs that could be done in order to
+         hopefully create a safer environment for everyone. </p>
     </div>
-    <div id="map"></div>
-    <div class="">
-      <h1>bottom</h1>
+    <div id = "aroundMap">
+      <div id="map">
+      </div>
     </div>
+    <div class="">
+      <h4 style="margin-top: 50px">Key</h4>
+        <p>In order to make it easier for everyone to see where the highest
+        areas of crime versus the lowest areas of crime we created a key to make
+         it more visually appealing and understandable. </p>
+          <label>Highest Crime Rate:  <div style = "height: 20px; width: 20px;
+            border-radius: 50%; background-color: red "></div></label>
+          <label>Medium Crime Rate: <div style = "height: 20px; width: 20px;
+            border-radius: 50%; background-color: yellow "></div></label>
+          <label>Lowest Crime Rate: <div style = "height: 20px; width: 20px;
+            border-radius: 50%; background-color: green "></div></label>
+    </div>
+
+    <section class="section-contact">
+
+      <h5 style="margin-top: 50px">Send Us Information About our Streets</h5>
+
+      <form action="//formspree.io/nalexpeterson@gmail.com"
+      method="POST">
+
+        <div class="contact-info-group">
+          <label><span>Your Name</span>
+            <input type="text" name="name"></label>
+            <label><span>Your Email</span>
+            <input type="email" name="_replyto">
+        </div>
+
+        <label><span>Your Message</span>
+        <textarea name="message"></textarea></label>
+
+        <div class="submit-wrap">
+          <input type="submit" value="Send"></label>
+        </div>
     <script>
-
-
     function initMap() {
       //for loop to loop the data into an array
       //var data = JSON.parse();
       var midOfIndy = {lat:39.809204, lng:-86.156272}
 
       //for loop to loop the actual JSON file into the array
-      var arrayLoop ={
-        //array to put the data in
-        var locations=  [];
-        for
-      };
+      // var arrayLoop ={
+      //   //array to put the data in
+      //   var locations=  [];
+      //   for
+      // };
 
 
       var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 10,
         center: midOfIndy
       });
+
+      var locations=  [
+        [39.821560, -86.132132],
+        [39.799016,  -86.141954],
+        [39.826789, -86.083846],
+        [39.797958, -86.132137],
+        [39.737219,-86.148521],
+      ];
+
+      for (var i = 0; i < locations.length; i++) {
+        var marker = new google.maps.Marker({
+          position: new google.maps.LatLng(locations[i][0], locations[i][1]),
+          map: map
+        });
+      }
 
       var marker = new google.maps.Marker({
         position: midOfIndy,
@@ -78,6 +115,56 @@
         {lat: 39.929902, lng: -86.152641}
 
       ];
+      var output = document.getElementById('map');
+
+
+            //sadaksjhfhsafksafdhsadas
+        var redRectangle = new google.maps.Rectangle({
+            strokeColor: '#FF0000',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#FF0000',
+            fillOpacity: 0.35,
+            map: map,
+            bounds: {
+              north: -86.268093,
+              south: -86.037190,
+              east: 39.929860,
+              west: 39.684053
+            }
+          });
+
+        var greenRectangle = new google.maps.Rectangle({
+            strokeColor: '#00FF00',
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: '#00FF00',
+            fillOpacity: 0.35,
+            map: map,
+            bounds: {
+              north: 39.929923,
+              south: 39.808097,
+              east: -86.210367,
+              west: -86.2739465
+            }
+          });
+
+
+
+      var yellowRectangle = new google.maps.Rectangle({
+          strokeColor: '#FFFF00',
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: '#FFFF00',
+          fillOpacity: 0.35,
+          map: map,
+          bounds: {
+            north: -86.268093,
+            south: -86.037190,
+            east: 39.929860,
+            west: 39.684053
+          }
+        });
 
       var indyBorder = new google.maps.Polyline({
           path: indyOnly,
@@ -103,9 +190,12 @@
               strokeColor: '#999',
               strokeOpacity: 1.0,
               strokeWeight: 2
-            });
+          });
             sectionX.setMap(map);
     }
+
+
+
 
     </script>
 
