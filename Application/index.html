@@ -1,0 +1,121 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta name="viewport" content="initial-scale=.50, user-scalable=no">
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Crime Map</title>
+    <link rel="stylesheet" href="css/foundation.css">
+    <link rel="stylesheet" href="css/app.css">
+    <style>
+      html, body {
+        height: 90%;
+        width: 90%;
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        height: 50%;
+        width: 50%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="">
+      <h2>top</h2>
+    </div>
+    <div id="map"></div>
+    <div class="">
+      <h1>bottom</h1>
+    </div>
+    <script>
+
+
+    function initMap() {
+      //for loop to loop the data into an array
+      //var data = JSON.parse();
+      var midOfIndy = {lat:39.809204, lng:-86.156272}
+
+      //for loop to loop the actual JSON file into the array
+      var arrayLoop ={
+        //array to put the data in
+        var locations=  [];
+        for
+      };
+
+
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 10,
+        center: midOfIndy
+      });
+
+      var marker = new google.maps.Marker({
+        position: midOfIndy,
+        map: map,
+        title: 'Middle of Indy!'
+      });
+
+      var indyOnly = [
+        {lat:39.929944, lng: -86.268093},
+        {lat:39.684053, lng: -86.290820},
+        {lat:39.694092, lng: -86.027706},
+        {lat:39.929860, lng: -86.037190},
+        {lat:39.929944, lng: -86.268093},
+
+      ];
+      var crossSectionY = [
+        {lat: 39.80699 ,lng:-86.2798},
+        {lat: 39.811976, lng: -86.032448}
+
+      ];
+
+      var crossSectionX = [
+        {lat: 39.68907 ,lng: -86.15926},
+        {lat: 39.929902, lng: -86.152641}
+
+      ];
+
+      var indyBorder = new google.maps.Polyline({
+          path: indyOnly,
+          geodesic: true,
+          strokeColor: 'black',
+          strokeOpacity: 1.0,
+          strokeWeight: 2
+        });
+        indyBorder.setMap(map);
+
+        var sectionY = new google.maps.Polyline({
+            path: crossSectionY,
+            geodesic: true,
+            strokeColor: '#999',
+            strokeOpacity: 1.0,
+            strokeWeight: 2
+          });
+          sectionY.setMap(map);
+
+          var sectionX = new google.maps.Polyline({
+              path: crossSectionX,
+              geodesic: true,
+              strokeColor: '#999',
+              strokeOpacity: 1.0,
+              strokeWeight: 2
+            });
+            sectionX.setMap(map);
+    }
+
+    </script>
+
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB1d8Xb2FGKeSUjgxrW3cUc_HIJrLY7AL8&callback=initMap">
+    </script>
+    <script src="js/vendor/jquery.js"></script>
+    <script src="js/vendor/what-input.js"></script>
+    <script src="js/vendor/foundation.js"></script>
+    <script src="js/app.js"></script>
+    <script type="text/javascript" src"data.json"></script>
+  </body>
+</html>
